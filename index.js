@@ -1,6 +1,6 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const shape = require("./lib/shapes.js");
+const Shapes = require("./lib/shapes.js");
 
 inquirer
   .prompt([
@@ -35,20 +35,22 @@ inquirer
   .then((response) => {
     if (response.shape === "square") {
 
-      const squareShape = new shape.square(
+      const squareShape = new Shapes.square(
         response.textColor,
-        response.shapeColor
+        response.shapeColor,
+        response.name
       );
 
       fs.writeFile('logo.svg', squareShape.renderSquare(), (error) => 
-        error ? console.error(error) : console.log(data)
+        error ? console.error(error) : console.log(response)
       );
 
     } else if (response.shape === "triangle") {
 
-      const triangleShape = new shape.triangle(
+      const triangleShape = new Shapes.triangle(
         response.textColor,
-        response.shapeColor
+        response.shapeColor,
+        response.name
       );
 
       fs.writeFile("logo.svg", triangleShape.renderTriangle(), (error) =>
@@ -57,9 +59,10 @@ inquirer
 
     } else {
 
-      const circleShape = new shape.circle(
+      const circleShape = new Shapes.circle(
         response.textColor,
-        response.shapeColor
+        response.shapeColor,
+        response.name
       );
 
       fs.writeFile("logo.svg", circleShape.renderCircle(), (error) =>
