@@ -54,7 +54,7 @@ inquirer
       );
 
       fs.writeFile("logo.svg", triangleShape.renderTriangle(), (error) =>
-        error ? console.error(error) : console.log(data)
+        error ? console.error(error) : console.log(response)
       );
 
     } else {
@@ -66,7 +66,7 @@ inquirer
       );
 
       fs.writeFile("logo.svg", circleShape.renderCircle(), (error) =>
-        error ? console.error(error) : console.log(data)
+        error ? console.error(error) : console.log(response)
       );
 
     }
